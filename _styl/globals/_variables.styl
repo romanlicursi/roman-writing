@@ -1,0 +1,118 @@
+/*--------------------------------------------------------------------
+* $VARIABLES
+--------------------------------------------------------------------*/
+
+// Font Families
+$font-base = 'SydoniaAtramentiquaRegular', 'Times New Roman', serif
+$font-italic = 'SydoniaAtramentiquaItalic', 'Times New Roman', serif
+$font-bold = 'SydoniaAtramentiquaBold', 'Times New Roman', serif
+$font-light = 'SydoniaAtramentiquaLight', 'Times New Roman', serif
+$font-heading = 'Hubano-Rough', system-ui, 'Segoe UI', Roboto, sans-serif
+
+// Mixins
+
+b(val) //b for bracket
+  unquote("[") + val + unquote("]")
+
+white(alpha)
+  rgba(255,255,255,alpha)
+
+black(alpha)
+  rgba(0,0,0,alpha)
+
+// red(alpha)
+//   rgba(235,45,83,alpha)
+
+red(alpha)
+  rgba(255,59,59,alpha)
+
+visually-hidden()
+  height: 1px
+  width: 1px
+  position: absolute
+  display: block
+  overflow: hidden
+  clip: rect(1px 1px 1px 1px)
+  clip: rect(1px, 1px, 1px, 1px)
+  clip-path: inset(1px)
+  white-space: nowrap
+
+// Breakpoints
+
+$bp-xs = 350px
+$bp-sm  = 500px
+
+// UI elements
+
+$link-padding = .2em
+
+$ui-border-thick = 2px solid
+$ui-border-thin = 1px solid
+$ui-border-dotted = 1px dotted
+
+$focus-border-w = 4px
+$focus-border = $focus-border-w solid var(--focus-color)
+$focus-offset = 3px
+
+linked-img()
+  display: block
+
+  &:focus:focus-visible
+    focus-img()
+  
+  &:hover
+    color: inherit
+
+focus()
+  outline: $focus-border
+  outline-offset: $focus-offset
+  background-color: var(--bg-color)
+  box-shadow: 0 0 0 $focus-offset var(--bg-color),
+              ($focus-offset * 2) ($focus-offset * 2) 0 ($focus-border-w + $focus-offset) var(--text-color)
+
+focus-img()
+  outline: $focus-border
+  outline-offset: 0
+  box-shadow: ($focus-offset * 3) ($focus-offset * 3) 0 $focus-border-w var(--text-color)
+
+focus-btn()
+  outline: $focus-border
+  outline-offset: 0
+  box-shadow: ($focus-offset * 2) ($focus-offset * 2) 0 $focus-border-w var(--text-color)
+
+// Colors
+
+:root
+
+  --beige: #e4e2d7
+  // --red: #EB2D53
+  --red: #ff3b3b
+  --black: #111
+
+  --bg-color: light-dark(var(--beige), var(--black))
+  --text-color: light-dark(black, var(--red))
+  --border-solid: solid
+  --border-dotted: dotted
+  --light-color: light-dark(black(.3), red(.3))
+  --focus-color: light-dark(var(--red), white)
+  --pre-bg: light-dark(white, black)
+
+  --font-xs: .85rem
+  --font-sm: 1rem
+  --font-base: 1.2rem
+  --font-md: 1.5rem
+  --font-lg: 2.3rem
+  --font-xl: 3rem
+  --font-xxl: 6rem
+
+  --color-mode: 'light'
+  
+  @media screen and (max-width: $bp-sm - 1)
+    --content-padding: 1.2rem
+
+  @media screen and (min-width: $bp-sm)
+    --content-padding: 2rem
+
+@media (prefers-color-scheme: dark)
+  :root
+    --color-mode: 'dark'

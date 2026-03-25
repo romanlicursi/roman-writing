@@ -1,0 +1,28 @@
+extends _layout
+
+block vars
+  - var pageTitle = 'Writing'
+  - var pageDescription = 'Writing by Roman Licursi on technology, career, and systems thinking.'
+  - var pagePath = 'thoughts'
+  - var bodyClass = 'thoughts'
+
+mixin thought(date,title,href,source)
+  .thought
+    a.thought-title(href=href)
+      span= title
+    if source
+      small.external= source
+    //- small.date= date
+
+block header
+
+  h1#content Writing
+
+block content
+
+  section.container
+
+    .thoughts-list
+
+      h2.dateline 2026
+      +thought('March 2026', 'Hello, world', '/thoughts/entries/hello-world')

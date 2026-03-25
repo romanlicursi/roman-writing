@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Roman Licursi</title>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Writing by Roman Licursi on technology, career, and systems thinking.</description>
+    <language>en-US</language>
+    <link>/</link>
+
+
+    <item>
+      <title>Hello, world</title>
+      <description><![CDATA[<p>This is the first post on this site. A few words on why I'm starting to write.</p>]]></description>
+      <link>/thoughts/entries/hello-world</link>
+      <guid>/thoughts/entries/hello-world</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+    </item>
+
+  </channel>
+</rss>

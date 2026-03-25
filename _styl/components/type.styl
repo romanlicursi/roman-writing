@@ -1,0 +1,85 @@
+/*--------------------------------------------------------------------
+* $TYPE
+--------------------------------------------------------------------*/
+
+h1, h2, h3
+  text-wrap: pretty
+
+h1
+  line-height: 1.1
+  font-family: $font-heading
+  font-size: var(--font-xl)
+
+h2
+  line-height: 1.2
+  font-size: var(--font-md)
+  font-family: $font-bold
+  text-transform: uppercase
+  scroll-margin-top: 20px
+  
+  @media screen and (max-width: $bp-sm - 1)
+    font-size:   calc(var(--font-md) - .2rem)
+
+h3
+  line-height: 1.2
+  font-size: var(--font-base)
+  font-family: $font-bold
+  text-transform: uppercase
+
+// p, li {
+//   text-wrap: pretty
+// }
+
+.light
+  font-family: $font-light
+
+em
+  font-weight: inherit
+  font-family: $font-italic
+
+strong
+  font-family: $font-bold
+
+small,
+.small
+  font-size: var(--font-sm)
+
+ul.bullets
+  list-style-type: disc
+  padding-left: 1rem
+
+figcaption
+  font-size: var(--font-xs)
+
+p code,
+ul code,
+h2 code,
+figcaption code
+  padding: 3px 5px
+  border: $ui-border-dotted
+  font-size: var(--font-sm)
+  font-weight: 500
+  color: var(--text-color)
+  align-self: center
+
+h2 code
+  margin: -.15em .2em 0
+  display: inline-block
+  vertical-align: middle
+  text-shadow: none
+  text-transform: none
+
+pre, code
+  font-family: monospace
+  border-radius: 3px
+
+pre
+  white-space: pre-wrap
+  overflow: auto
+  border: $ui-border-thin
+pre code
+  background-color: var(--pre-bg)
+  font-size: var(--font-xs)
+
+.no-js pre
+  padding: 1em

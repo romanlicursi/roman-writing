@@ -1,0 +1,112 @@
+/*--------------------------------------------------------------------
+* $NAV
+--------------------------------------------------------------------*/
+
+.main-nav
+  width: 100%
+  padding: 2rem 0
+  font-family: $font-light
+
+  ol
+    display: grid
+    gap: 1rem
+    counter-reset: counter
+
+  li
+    counter-increment: counter
+    display: flex
+
+  a
+    display: flex
+    gap: .4rem
+    flex: 1
+    font-size: var(--font-sm)
+    text-transform: uppercase
+    text-decoration: none
+    transition: transform 100ms ease-in-out
+    
+    &:hover
+      transform: scale(1.05)
+
+  a::before
+    content: ''
+    flex: 1
+    background-repeat: space no-repeat
+    background-image: radial-gradient(circle, var(--text-color) 20%, transparent 21%)
+    background-size: .6em .6em
+    background-position: 0 80%
+    order: 2
+
+  a::after
+    content: counters(counter, ".", upper-roman)
+    order: 3
+
+  & + small
+    display: block
+    margin-top: 3rem
+    font-family: $font-bold
+    
+    a
+      link-alt()
+
+:root
+  --toggle-sun: 1
+  --toggle-moon: 0
+
+@media (prefers-color-scheme: dark)
+  :root:not([data-user-color-scheme])
+    --toggle-sun: 0
+    --toggle-moon: 1
+
+[data-user-color-scheme='dark']
+  --toggle-sun: 0
+  --toggle-moon: 1
+
+.mode-toggle
+  margin-top: .5em
+  display: grid
+  place-content: center
+
+  .no-js &
+    display: none
+
+.toggle-button
+  padding: 0
+  display: flex
+  align-items: center
+  background-color: transparent
+  border: none
+  cursor: pointer
+
+  &:focus-visible
+    outline: none
+    border-radius: 50%
+
+  &:focus:not(:focus-visible)
+    outline: none
+
+  &:active
+    transform: translateY(1px)
+
+  .toggle-text
+    visually-hidden()
+
+.toggle-icon
+  width: 1.6rem
+  height: @width
+  transform: scale(1) rotate(0deg)
+  transition: transform 100ms ease-in-out
+  &:hover
+    transform: scale(1.15) rotate(5deg)
+  svg
+    width: 100%
+    height: auto
+    #sun
+      opacity: var(--toggle-sun)
+    #moon
+      opacity: var(--toggle-moon)
+    path,
+    circle,
+    line
+      stroke: var(--text-color)
+      vector-effect: none

@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------------
+* $FOOTER
+--------------------------------------------------------------------*/
+
+.main-footer
+  margin-top: 4rem
+  font-size: var(--font-sm)
+
+  .footer-links
+    padding: 1em 0 .8em
+    display: flex
+    gap: .5em 1.5em
+    justify-content: space-between
+    align-items: center
+    border-top: $ui-border-thick
+    border-bottom: $ui-border-thick
+    line-height: 1
+    font-family: $font-light
+
+    @media screen and (max-width: $bp-xs)
+      flex-direction: column
+
+    nav
+      display: flex
+
+      @media screen and (max-width: $bp-xs)
+        justify-content: center
+
+      &.links
+        gap: .75em
+      &.icons
+        gap: .5em
+
+    a
+      link-alt()

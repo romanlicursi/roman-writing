@@ -1,0 +1,47 @@
+/*--------------------------------------------------------------------
+* $THOUGHT ENTRY
+--------------------------------------------------------------------*/
+
+.thought-detail
+
+  .header-main
+
+    h1
+      font-size: var(--font-lg)
+
+      @media screen and (max-width: $bp-sm - 1)
+        font-size: calc(var(--font-lg) - .3rem)
+
+    .date
+      margin: 2em 0
+
+  .thoughts-nav
+    width: 100%
+    margin-top: 4rem
+    display: grid
+    grid-template-columns: repeat(3,1fr)
+    gap: 1em
+    align-items: center
+    font-size: var(--font-sm)
+
+    a
+      link-alt()
+
+    .back
+      text-align: center
+    .earlier
+      text-align: right
+
+  // Do I want to do this?
+  .content
+
+    @media screen and (min-width: 690px)
+      img
+        position: relative
+        transition: transform 100ms ease-in-out
+      figure.zoom img:hover,
+      img.zoom:hover
+        transform: scale(1.5)
+        z-index: 100
+        &:not([src$='.png'])
+          box-shadow: 0 10px 10px -4px black(.3)

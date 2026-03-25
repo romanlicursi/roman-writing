@@ -1,0 +1,36 @@
+/*--------------------------------------------------------------------
+* $Video
+--------------------------------------------------------------------*/
+
+.video-container
+  position: relative
+  padding-bottom: 56.25% /* 16:9 */
+  padding-top: 25px
+  height: 0
+  border: $ui-border-thin
+
+.video-container object,
+.video-container embed,
+.video-container iframe,
+.video-container video
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+video
+  background-color: transparent
+  border: $ui-border-thin
+  
+  &:focus:focus-visible
+    focus-img()
+
+.content .lyt-activated iframe
+  margin-top: 0
+
+lite-youtube
+  border: $ui-border-thin
+
+lite-youtube:has(.lty-playbtn:focus)
+  focus-img()

@@ -1,0 +1,103 @@
+doctype html
+html(lang='en')
+
+  //- Variable block for page-specific info
+  block vars
+
+  head
+
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(charset='utf-8')
+    meta(name='viewport',content='width=device-width, initial-scale=1, minimum-scale=1')
+
+    meta(name='description', content=pageDescription)
+    meta(name='author', content='Roman Licursi')
+
+    if bodyClass == 'home'
+      title Roman Licursi
+    else
+      title #{pageTitle} | Roman Licursi
+
+    link(rel='icon', href='/assets/images/favicon.png', sizes='any')
+    //- link(rel='icon', href='/assets/images/favicon.svg', type='image/svg+xml')
+
+    link(rel='alternate', type='application/rss+xml', title="Roman Licursi's Writing Feed", href='/feed.xml')
+
+    //- check light/dark mode
+    script(type='text/javascript').
+      if (localStorage.getItem("user-color-scheme") !== null) {
+        document.documentElement.setAttribute("data-user-color-scheme", localStorage.getItem("user-color-scheme"));
+      };
+
+    link(href='/assets/fonts/Hubano-Rough.woff2', rel='preload', as='font', type='font/woff2', crossorigin)
+    link(rel='stylesheet', href='/assets/css/main.css')
+
+    block styles
+
+    if bodyClass !== 'utility'
+      meta(property='og:type',  content='website')
+      meta(content=pageDescription, property='og:description')
+      if bodyClass == 'thought-detail'
+        meta(content='/thoughts/entries/' + pagePath, property='og:url')
+        meta(content=pageTitle, property='og:title')
+      else if bodyClass == 'home'
+        meta(content='/', property='og:url')
+        meta(content='Roman Licursi', property='og:title')
+      else
+        meta(content='/' + pagePath, property='og:url')
+        meta(content=pageTitle, property='og:title')
+
+  body.no-js(class=bodyClass)
+
+    if bodyClass !== 'home'
+      a.skip-link(href='#nav') Jump to navigation
+
+    .app
+      header.header-main(class=bodyClass)
+        .container
+          if bodyClass == 'thought-detail'
+            if replaceTitle
+              h1#content= replaceTitle
+            else
+              .date
+                small= date
+              h1#content= pageTitle
+          else
+            block header
+
+      if bodyClass == 'gifs'
+        block content
+      else
+        main#content
+          if bodyClass == 'thought-detail'
+            .container
+              .content
+                block content
+              nav.thoughts-nav
+                div.later
+                  if (typeof(later) !== 'undefined')
+                    span ←
+                    a.later(href='/thoughts/entries/' + later) Newer
+                div.back
+                  a(href='/thoughts') All
+                div.earlier
+                  if (typeof(earlier) !== 'undefined')
+                    a.earlier(href='/thoughts/entries/' + earlier) Older
+                    span →
+          else
+            block content
+
+
+      if bodyClass !== 'home'
+        footer.main-footer(class=bodyClass)
+          .footer-links
+            nav.links
+              a(href='mailto:romanlicursi@gmail.com') Email
+            nav.icons
+              a.icon.github(href='https://github.com/romanlicursi', title='follow my projects on GitHub')
+                include ../_assets/images/social-github.svg
+
+          include includes/main-nav
+
+    script(src='/js/main.min.js')
+    block scripts

@@ -1,0 +1,26 @@
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+.DS_Store
+
+pids
+logs
+results
+
+node_modules
+npm-debug.log
+*.sublime*
+
+public
+
+# Local Netlify folder
+.netlify
+
+# Portfolio images not needed for writing site
+_assets/images/
+_blog-assets/

@@ -1,0 +1,22 @@
+.icon
+  width: 1.6rem
+  height: @width
+  display: block
+  transform: scale(1) rotate(0deg)
+  transition: transform 100ms ease-in-out
+
+  svg
+    width: 100%
+    height: auto
+    path,
+    polygon,
+    line
+      stroke: var(--text-color)
+
+  &:hover
+    background-color: transparent
+
+  &:nth-child(odd):hover
+    transform: scale(1.15) rotate(5deg)
+  &:nth-child(even):hover
+    transform: scale(1.15) rotate(-5deg) 
