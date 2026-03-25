@@ -25,9 +25,8 @@ html(lang='en')
 
     //- check light/dark mode
     script(type='text/javascript').
-      if (localStorage.getItem("user-color-scheme") !== null) {
-        document.documentElement.setAttribute("data-user-color-scheme", localStorage.getItem("user-color-scheme"));
-      };
+      var colorScheme = localStorage.getItem("user-color-scheme") || "dark";
+      document.documentElement.setAttribute("data-user-color-scheme", colorScheme);
 
     link(href='/assets/fonts/Hubano-Rough.woff2', rel='preload', as='font', type='font/woff2', crossorigin)
     link(rel='stylesheet', href='/assets/css/main.css')
