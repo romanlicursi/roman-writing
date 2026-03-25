@@ -21,6 +21,15 @@ public
 # Local Netlify folder
 .netlify
 
-# Portfolio images not needed for writing site
-_assets/images/
+# Portfolio images not needed for writing site (keep social icons and favicon)
+_assets/images/thoughts/
+_assets/images/work/
+_assets/images/archive/
+_assets/images/OG/
+_assets/images/gifs/
+_assets/images/bg-pattern*
+_assets/images/coffee.svg
+_assets/images/lynn-*
+_assets/images/lynnfisher*
+_assets/images/web-*
 _blog-assets/
